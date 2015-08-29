@@ -1,0 +1,52 @@
+
+
+<div class="filters"
+
+<p style="color:#27ae60">Category</p>
+<%= link_to "Graphic Design", links_path(:category => "Graphic Design"), class:"filter" %>
+<%= link_to "Web Design", links_path(:category => "Web Design"), class:"filter" %>
+<%= link_to "UI Design", links_path(:category => "UI Design"), class:"filter" %>
+
+<p style="color:#27ae60">Skills</p>
+
+ 
+<%= link_to "Edge Animate", links_path(:skill => "Edge Animate"), class:"filter" %>
+<%= link_to "Adobe Muse", links_path(:skill => "Adobe Muse"), class:"filter" %>
+<%= link_to "Sketch3", links_path(:skill => "Sketch3"), class:"filter" %>
+
+
+<%= link_to "Illustrator", links_path(:skill => "Illustrator"), class:"filter" %>
+<%= link_to "Mobile UI", links_path(:skill => "Mobile UI"), class:"filter" %>
+<%= link_to "Web UI/UX", links_path(:skill => "Web UI/UX"), class:"filter" %>
+
+</div>
+
+
+<% @links.each do |link| %>
+  <div class="link row clearfix">
+    <p>
+      <%= link_to link.title, link %><br>
+      <small class="author">Submitted <%= time_ago_in_words(link.created_at) %> by <%= link.user.name %></small>
+    </p>
+
+    <div class="btn-group">
+      <a class="btn btn-default btn-sm" href="<%= link.url %>" target="_blank">Visit Link</a>
+      <%= link_to like_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
+        <span class="glyphicon glyphicon-heart"></span>
+        Like
+        <%= link.get_upvotes.size %>
+      <% end %>
+      <%= link_to dislike_link_path(link), method: :put, class: "btn btn-default btn-sm" do %>
+        <span class="glyphicon glyphicon-thumbs-down"></span>
+        Dislike
+        <%= link.get_downvotes.size %>
+      <% end %>
+    </div>
+    
+    <div id="description">
+     <p>
+     <%= link.description %><br>
+     </p>
+    </div>
+  </div>
+<% end %>

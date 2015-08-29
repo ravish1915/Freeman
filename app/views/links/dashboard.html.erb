@@ -1,0 +1,56 @@
+
+
+
+
+
+<h1 style="color:#27ae60">Dashboard</h1>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-6 chart">
+    
+    <%= pie_chart Link.group(:category).count, colors:["#f39c12","#e74c3c","#27ae60"], library: {backgroundColor: "#eee"} %>
+  </div>
+   <div class="col-xs-12 col-sm-6 chart">
+    
+  <%= column_chart Link.group(:category).count, colors:["#27ae60","#f39c12"], library: {backgroundColor: "#eee"}%>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-6 chart">
+    
+    <%= bar_chart Link.group(:skill).count, colors:["#27ae60","#f39c12"], library: {backgroundColor: "#eee"} %>
+  </div>
+   <div class="col-xs-12 col-sm-6 chart">
+  <%= pie_chart Link.group(:skill).count, colors:["#27ae60","#f39c12","#1abc9c","#34495e","#9b59b6","#3498db"], library: {backgroundColor: "#eee"} %>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 col-sm-6 chart">
+    
+    <%= column_chart Link.group(:skill).count, colors:["#3498db"], library: {backgroundColor: "#eee"} %>
+  </div>
+   <div class="col-xs-12 col-sm-6 chart">
+  <%= bar_chart Link.group(:category).count, colors:["#27ae60"], library: {backgroundColor: "#eee"} %>
+
+  </div>
+</div>
+
+
+
+  <div class="row">
+  <div class="col-xs-12 col-sm-12 chart">
+    
+    <%= line_chart({1 => 10, 2 => 5,3 => 14,4 =>21,5 => 18,6 =>12,7 =>27,8 =>31}, colors:["#27ae60"], library: {backgroundColor: "#eee"}) %>
+  </div>
+</div>
+
+
+  
+
+  
+
+
+
